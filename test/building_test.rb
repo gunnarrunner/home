@@ -11,25 +11,22 @@ class BuildingTest < Minitest::Test
   end
 
   def test_it_has_units
-    skip
     building = Building.new
     assert_equal [], building.units
   end
 
   def test_add_units
-    skip
     building = Building.new
     unit1 = Apartment.new({number: "A1", monthly_rent: 1200, bathrooms: 1, bedrooms: 1})
     unit2 = Apartment.new({number: "B2", monthly_rent: 999, bathrooms: 2, bedrooms: 2})
-    building.add_unit(unit1)
-    building.add_unit(unit2)
+    building.add_units(unit1)
+    building.add_units(unit2)
     assert_equal unit1, building.units[0]
     assert_equal unit2, building.units[1]
     assert_equal [unit1, unit2], building.units
   end
 
   def test_it_has_renters
-    skip
     building = Building.new
     unit1 = Apartment.new({number: "A1", monthly_rent: 1200, bathrooms: 1, bedrooms: 1})
     unit2 = Apartment.new({number: "B2", monthly_rent: 999, bathrooms: 2, bedrooms: 2})
@@ -37,21 +34,19 @@ class BuildingTest < Minitest::Test
   end
 
   def test_add_renters
-    skip
     building = Building.new
     unit1 = Apartment.new({number: "A1", monthly_rent: 1200, bathrooms: 1, bedrooms: 1})
     unit2 = Apartment.new({number: "B2", monthly_rent: 999, bathrooms: 2, bedrooms: 2})
     renter1 = Renter.new("Aurora")
     renter2 = Renter.new("Tim")
-    unit1.add_renter(renter1), building.renters[0]
-    unit2.add_renter(renter2), building.renters[1]
+    building.add_renters(renter1)
+    building.add_renters(renter2)
     assert_equal renter1, building.renters[0]
     assert_equal renter2, building.renters[1]
     assert_equal [renter1, renter2], building.renters
   end
 
   def test_average_rent
-    skip
     building = Building.new
     unit1 = Apartment.new({number: "A1", monthly_rent: 1200, bathrooms: 1, bedrooms: 1})
     unit2 = Apartment.new({number: "B2", monthly_rent: 999, bathrooms: 2, bedrooms: 2})
