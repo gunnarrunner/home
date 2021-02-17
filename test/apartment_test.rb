@@ -27,7 +27,6 @@ class ApartmentTest < Minitest::Test
     renter1 = Renter.new("Jessie")
     unit1.add_renter(renter1)
     assert_equal [renter1], unit1.renter
-    require "pry"; binding.pry
   end
 
 end
